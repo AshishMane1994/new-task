@@ -1,6 +1,8 @@
 <div class="container mt-4">
+    <h1 class="text-danger text-center ">Table Data </h1>
+
   <div class="row justify-content-end">
-    <div class="col-2">
+    <div class="col-2 ">
       <button
         class="btn btn-primary mb-2 me-2"
         (click)="openWindowCustomClass(content)"
@@ -33,7 +35,9 @@
               [(ngModel)]="firstname"
               placeholder="firstname"
             />
+         
           </div>
+          
           <div class="col-md-4">
             <input
               type="text"
@@ -120,6 +124,7 @@
           />
            
           </div>
+
         </div>
 
      
@@ -144,51 +149,54 @@
     >
       Save
     </button>
-    <button type="button" class="btn btn-primary" (click)="editdata(user)" *ngIf="hide1" [disabled]="userformdata.invalid">
+    <button type="button" class="btn btn-primary" (click)="editdata(userformdata)" *ngIf="hide1">
       update
     </button>
   </div>
 </ng-template>
-
-<table class="table table-bordered">
-  <thead>
-    <tr class="text-uppercase">
-      <th scope="col">firstname</th>
-      <th scope="col">middlename</th>
-      <th scope="col">lastname</th>
-      <th scope="col">gender</th>
-      <th scope="col">birthdate</th>
-      <th scope="col">city</th>
-      <th scope="col">state</th>
-      <th scope="col">country</th>
-      <th scope="col">zip</th>
-      <th scope="col">action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of user">
-      <td>{{ item.firstname }}</td>
-      <td>{{ item.middlename }}</td>
-      <td>{{ item.lastname }}</td>
-      <td>{{ item.gender }}</td>
-      <td>{{ item.birthdate }}</td>
-      <td>{{ item.city }}</td>
-      <td>{{ item.state }}</td>
-      <td>{{ item.country }}</td>
-      <td>{{ item.zip }}</td>
-      <td>
-        <button
-          class="btn btn-primary me-2"
-          (click)="editdateamodel(content, item)"
-        >
-          Edit
-        </button>
-      </td>
-      <td>
-        <button class="btn btn-danger" (click)="deletedata(item)">
-          Delete
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="row justify-content-center">
+    <div class="col-md-11">
+        <table class="table table-bordered">
+            <thead class="bg-light">
+              <tr class="text-uppercase">
+                <th scope="col">firstname</th>
+                <th scope="col">middlename</th>
+                <th scope="col">lastname</th>
+                <th scope="col">gender</th>
+                <th scope="col">birthdate</th>
+                <th scope="col">city</th>
+                <th scope="col">state</th>
+                <th scope="col">country</th>
+                <th scope="col">zip</th>
+                <th scope="col">action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of user">
+                <td>{{ item.firstname }}</td>
+                <td>{{ item.middlename }}</td>
+                <td>{{ item.lastname }}</td>
+                <td>{{ item.gender }}</td>
+                <td>{{ item.birthdate }}</td>
+                <td>{{ item.city }}</td>
+                <td>{{ item.state }}</td>
+                <td>{{ item.country }}</td>
+                <td>{{ item.zip }}</td>
+                <td>
+                  <button
+                    class="btn btn-sm btn-primary me-2"
+                    (click)="editdateamodel(content, item)"
+                  >
+                    Edit
+                  </button>
+                  <button class="btn btn-sm btn-danger" (click)="deletedata(item)">
+                      Delete
+                    </button>
+                </td>
+           
+                  
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

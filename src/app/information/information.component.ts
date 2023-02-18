@@ -73,9 +73,8 @@ this.userformdata=this.formbuilder.group({
 
 }
 
-get f() {
-  return this.userformdata.controls;
-}
+  //name = new FormControl('');
+  get f() { return this.userformdata.controls; }
 	openWindowCustomClass(content:any) {
 		this.modalService.open(content, { size: 'lg' });
     this.heading="Add Data"
@@ -123,7 +122,10 @@ editdata(user:any){
   this.user1=this.userformdata.value
   this.infoServices.updateuser(this.user1).subscribe((res:any)=>{
 console.log(res);
-  })}
+  })
+  this.modalService.dismissAll()
+this.userformdata.reset()
+}
 
 deletedata(item:any){
   console.log(item.id);
