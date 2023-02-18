@@ -8,11 +8,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InformationComponent } from './information/information.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InformationComponent,
   ],
   imports: [
     BrowserModule,

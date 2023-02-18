@@ -1,0 +1,72 @@
+
+<button class="btn btn-primary mb-2 me-2" (click)="openWindowCustomClass(content)">
+Add Data</button>
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Modal title</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form [formGroup]="userformdata">
+            <div class="form-group">
+              <input type="text" class="m-2" class="form-control mt-2" formControlName="name" [(ngModel)]="name" placeholder="firstname">
+              <input type="text" class="form-control mt-2" formControlName="middlename" [(ngModel)]="middlename"  placeholder="middlename">
+              <input type="text" class="form-control mt-2"  formControlName="lastname" [(ngModel)]="lastname"  placeholder="lastname">
+              <input type="text" class="form-control mt-2" placeholder="gender" [(ngModel)]="gender" formControlName="gender">
+              <input type="text" class="form-control mt-2" placeholder="birthdate" [(ngModel)]="birthdate" formControlName="birthdate">
+              <input type="text" class="form-control mt-2" placeholder="city" [(ngModel)]="city" formControlName="city">
+              <input type="text" class="form-control mt-2" placeholder="state" [(ngModel)]="state" formControlName="state">
+              <input type="text" class="form-control mt-2" placeholder="country"  [(ngModel)]="country" formControlName="country">
+              <input type="number" class="form-control mt-2" placeholder="zip" [(ngModel)]="zip" formControlName="zip">
+
+            </div>
+            <div class="form-group">
+              
+            </div>
+            <div class="form-group form-check">
+             
+            </div>
+            
+          </form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+		<button type="button" class="btn btn-primary" (click)="submitformdata(userformdata)" >Save</button>
+		<button type="button" class="btn btn-primary" (click)="editdata(user)" >update</button>
+	</div>
+</ng-template>
+
+
+
+<table class="table">
+    <thead>
+      <tr class="text-uppercase">
+        <th scope="col">firstname</th>
+        <th scope="col">middlename</th>
+        <th scope="col">lastname</th>
+        <th scope="col">gender</th>
+        <th scope="col">birthdate</th>
+        <th scope="col">city</th>
+        <th scope="col">state</th>
+        <th scope="col">country</th>
+        <th scope="col">zip</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of user">
+        <td>{{item.firstname}}</td>
+        <td>{{item.middlename}}</td>
+        <td>{{item.lastname}}</td>
+        <td>{{item.gender}}</td>
+        <td>{{item.birthdate}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.state}}</td>
+        <td>{{item.country}}</td>
+        <td>{{item.zip}}</td>
+        <td><button class="btn btn-primary me-2" (click)="editdateamodel(content,item)">edit</button></td>
+        <td><button class="btn btn-danger" (click)="deletedata(item)">Delete</button></td>
+      </tr>
+     
+    </tbody>
+  </table>
