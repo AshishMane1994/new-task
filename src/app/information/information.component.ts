@@ -25,21 +25,49 @@ export class InformationComponent implements OnInit{
   country:any
   zip:any
   id: any;
+  heading="Add Data"
+  hide=true
+  hide1=true
+
   constructor(private modalService: NgbModal, private infoServices:InfoServicesService,private formbuilder:FormBuilder) {}
 
  
 ngOnInit(): void {
 this.getdata()
 this.userformdata=this.formbuilder.group({
-  firstname:[""],
-  middlename:[],
-  lastname:[],
-  gender:[],
-  birthdate:[],
-  city:[],
-  state:[],
-  country:[],
-  zip:[],
+  firstname:["",[
+    Validators.required,
+  ]],
+  middlename:["",[
+    Validators.required,
+  ]],
+  lastname:["",[
+    Validators.required,
+  ]],
+  gender:["",[
+    Validators.required,
+    
+  ]],
+  birthdate:["",[
+    Validators.required,
+    
+  ]],
+  city:["",[
+    Validators.required,
+    
+  ]],
+  state:["",[
+    Validators.required,
+    
+  ]],
+  country:["",[
+    Validators.required,
+    
+  ]],
+  zip:["",[
+    Validators.required,
+    
+  ]],
 
 })
 
@@ -50,9 +78,17 @@ get f() {
 }
 	openWindowCustomClass(content:any) {
 		this.modalService.open(content, { size: 'lg' });
+    this.heading="Add Data"
+    this.hide=true
+    this.hide1=false
+
+
 	}
 	editdateamodel(content:any,item:any) {
     this.modalService.open(content, { size: 'lg' });
+    this.heading="Edit Data"
+    this.hide=false
+    this.hide1=true
     this.id=item.id
     this.firstname=item.firstname
     this.middlename=item.middlename
@@ -63,9 +99,6 @@ get f() {
     this.state=item.state
     this.country=item.country
     this.zip=item.zip
-    
-
-	
 	}
 getdata(){
   this.infoServices.getuserData().subscribe((res)=>{
@@ -78,6 +111,7 @@ submitformdata(user:any){
  this.user1=this.userformdata.value
   this.infoServices.createdata(this.user1).subscribe((res:any)=>{
 console.log(res);
+alert("sucssesfully data added")
 this.getdata()
 this.modalService.dismissAll()
 this.userformdata.reset()
