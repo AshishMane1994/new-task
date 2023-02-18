@@ -18,7 +18,7 @@ createdata(data:any):Observable<any>{
   // devservices.qpathways.com/otc/test/user/save
   return this.http.post<Info>(`${this.apiUrl}/save`,data)
 }
-updateuser(data:any,id:any):Observable<any>{
+updateuser(data:any):Observable<any>{
   // devservices.qpathways.com/otc/test/user/save
   return this.http.put<Info>(`${this.apiUrl}/update`,data)
 }

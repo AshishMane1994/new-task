@@ -87,7 +87,7 @@ this.userformdata.reset()
 
 editdata(user:any){
   this.user1=this.userformdata.value
-  this.infoServices.updateuser(this.user1,this.id).subscribe((res:any)=>{
+  this.infoServices.updateuser(this.user1).subscribe((res:any)=>{
 console.log(res);
   })}
 
