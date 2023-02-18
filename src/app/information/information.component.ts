@@ -15,7 +15,7 @@ export class InformationComponent implements OnInit{
   submitted = false;
   data: any;
   user1!: Info;
-  name:any
+  firstname:any
   middlename:any
   lastname:any
   gender:any
@@ -31,7 +31,7 @@ export class InformationComponent implements OnInit{
 ngOnInit(): void {
 this.getdata()
 this.userformdata=this.formbuilder.group({
-  name:[""],
+  firstname:[""],
   middlename:[],
   lastname:[],
   gender:[],
@@ -54,7 +54,7 @@ get f() {
 	editdateamodel(content:any,item:any) {
     this.modalService.open(content, { size: 'lg' });
     this.id=item.id
-    this.name=item.firstname
+    this.firstname=item.firstname
     this.middlename=item.middlename
     this.lastname=item.lastname
     this.gender=item.gender
@@ -95,7 +95,7 @@ deletedata(item:any){
   
 this.infoServices.deletedatauser(item.id).subscribe((res)=>{
 console.log(res);
-
+this.getdata()
 })
 alert("are you want to delete the data")
 }
