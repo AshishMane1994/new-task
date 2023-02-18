@@ -79,6 +79,7 @@ submitformdata(user:any){
   this.infoServices.createdata(this.user1).subscribe((res:any)=>{
 console.log(res);
 this.getdata()
+this.modalService.dismissAll()
 this.userformdata.reset()
   })
   
