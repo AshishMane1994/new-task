@@ -19,7 +19,7 @@
       type="button"
       class="btn-close"
       aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
+      (click)="modal.dismiss('Cross click')" (click)="resetfomValue()"
     ></button>
   </div>
   <div class="modal-body">
@@ -138,7 +138,7 @@
     <button
       type="button"
       class="btn btn-light"
-      (click)="modal.close('Close click')"
+      (click)="modal.close('Close click')"(click)="resetfomValue()"
     >
       Close
     </button>

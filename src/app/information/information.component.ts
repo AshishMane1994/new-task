@@ -75,6 +75,8 @@ this.userformdata=this.formbuilder.group({
 
   //name = new FormControl('');
   get f() { return this.userformdata.controls; }
+
+  // add form data modal open
 	openWindowCustomClass(content:any) {
 		this.modalService.open(content, { size: 'lg' });
     this.heading="Add Data"
@@ -83,6 +85,7 @@ this.userformdata=this.formbuilder.group({
 
 
 	}
+  // edit form data modal open
 	editdateamodel(content:any,item:any) {
     this.modalService.open(content, { size: 'lg' });
     this.heading="Edit Data"
@@ -99,6 +102,7 @@ this.userformdata=this.formbuilder.group({
     this.country=item.country
     this.zip=item.zip
 	}
+  //get all data desplayd in table
 getdata(){
   this.infoServices.getuserData().subscribe((res)=>{
 this.user=res
@@ -106,6 +110,8 @@ console.log(this.user)
   })
 }
 
+
+// add data using form
 submitformdata(user:any){
  this.user1=this.userformdata.value
   this.infoServices.createdata(this.user1).subscribe((res:any)=>{
@@ -117,7 +123,12 @@ this.userformdata.reset()
   })
   
 }
-
+//reset form value
+resetfomValue(){
+  this.getdata()
+this.userformdata.reset()
+}
+// function update data 
 editdata(user:any){
   this.user1=this.userformdata.value
   this.infoServices.updateuser(this.user1).subscribe((res:any)=>{
@@ -127,6 +138,8 @@ console.log(res);
 this.userformdata.reset()
 }
 
+
+// function for delete records
 deletedata(item:any){
   console.log(item.id);
   
