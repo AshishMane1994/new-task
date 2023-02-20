@@ -1,5 +1,5 @@
 export class Info {
-                  id!:string
+         id!:string
         firstname!: string;
         middlename!: string;
         lastname!: string;

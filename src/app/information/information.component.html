@@ -44,9 +44,10 @@
               class="form-control mt-2"
               formControlName="middlename"
               [(ngModel)]="middlename"
-              placeholder="middlename"
+              placeholder="middlename" 
             />
           </div>
+         
           <div class="col-md-4">
             <input
           type="text"
@@ -120,9 +121,19 @@
             class="form-control mt-2"
             placeholder="zip"
             [(ngModel)]="zip"
-            formControlName="zip"
+            formControlName="zip" 
           />
            
+          </div>
+           
+          <div class="col-md-4">
+            <input
+              type="hidden"
+              class="form-control mt-2"
+              formControlName="id"
+              [(ngModel)]="id"
+              placeholder="id" style="display: none;"
+            />
           </div>
 
         </div>

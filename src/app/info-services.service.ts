@@ -7,7 +7,7 @@ import { Info } from './info';
   providedIn: 'root'
 })
 export class InfoServicesService {
- private apiUrl= "https://devservices.qpathways.com/otc/test/user"
+ private apiUrl= "https://devservices.qpathways.com/otc/test/user" 
   constructor(private http:HttpClient) { }
 
 getuserData():Observable<any>{

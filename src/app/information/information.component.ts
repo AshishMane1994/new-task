@@ -68,6 +68,10 @@ this.userformdata=this.formbuilder.group({
     Validators.required,
     
   ]],
+  id:["",[
+
+    
+  ]],
 
 })
 
@@ -92,6 +96,8 @@ this.userformdata=this.formbuilder.group({
     this.hide=false
     this.hide1=true
     this.id=item.id
+    console.log(this.id);
+    // this.userformdata.controls["id"].setValue(item.id)
     this.firstname=item.firstname
     this.middlename=item.middlename
     this.lastname=item.lastname
@@ -116,7 +122,7 @@ submitformdata(user:any){
  this.user1=this.userformdata.value
   this.infoServices.createdata(this.user1).subscribe((res:any)=>{
 console.log(res);
-alert("sucssesfully data added")
+alert("Successfully data added")
 this.getdata()
 this.modalService.dismissAll()
 this.userformdata.reset()
@@ -131,9 +137,12 @@ this.userformdata.reset()
 // function update data 
 editdata(user:any){
   this.user1=this.userformdata.value
+  console.log(this.user1);
   this.infoServices.updateuser(this.user1).subscribe((res:any)=>{
+    this.resetfomValue()
 console.log(res);
   })
+  alert("record's update successfully")
   this.modalService.dismissAll()
 this.userformdata.reset()
 }
